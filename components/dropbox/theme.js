@@ -1,5 +1,8 @@
-import styled from "styled-components"
-import { BsSun, BsMoon } from "react-icons/bs"
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import ThemeAction from '../../redux/actions/ThemeActions';
+import { BsSun, BsMoon } from "react-icons/bs";
+import styled from "styled-components";
 
 const modeSettings = [
     {
@@ -16,29 +19,29 @@ const modeSettings = [
     },
 ]
 
-const colorSetting = [
+const colorSettings = [
     {
         id:'green',
         name:'green',
-        background: 'green-color',
+        background: 'green',
         class:'them-color-green'
     },
     {
         id:'pink',
         name:'pink',
-        background: 'pink-color',
+        background: 'pink',
         class:'them-color-pink'
     },
     {
         id:'yellow',
         name:'yellow',
-        background: 'yellow-color',
+        background: 'yellow',
         class:'them-color-yellow'
     },
     {
         id:'apricot',
         name:'apricot',
-        background: 'apricot-color',
+        background: 'gray',
         class:'them-color-apricot'
     },
 ]
@@ -70,21 +73,77 @@ const ThemeModeList = styled.ul`
         flex-direction: row;
         gap: 0.5rem;
         cursor: pointer;
+
+        &.modeList-color {
+
+        }
     }
 `
+
+const ThemeColorList = styled.li`
+    background-color: ${props => props.color ? `${props.color}` : ""};
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+`
+
 const Theme = () => {
+    const [currMode, setCurrMode] = useState('Dark'); //배경색 상태
+    const [currColor, setcurrColor] = useState('yellow')
+    const dispatch = useDispatch();
+
+    const setColor = color => {
+        setcurrColor(color.background);
+        localStorage.setItem('colorMode', color.class)
+        dispatch(ThemeAction.setColor(color.class))
+
+    }
+
+    const setMode = mode => {
+        setCurrMode(mode.name);
+        localStorage.setItem('themeMode', mode.class);
+        dispatch(ThemeAction.setMode(mode.class))
+    }
+
+    useEffect(()=> {
+        const themeClass = modeSettings.find(e => e.class === localStorage.getItem('themeMode'))
+        const colorClass = colorSettings.find(e => e.class === localStorage.getItem('colorMode'))
+
+        if(themeClass !== undefined) setCurrMode(themeClass.id);
+        if(colorClass !== undefined) setcurrColor(colorClass.background);
+    },[])
+
   return (
     <ThemeContainer>
-        <ThemeState></ThemeState>
+        <ThemeState>
+            <span>
+                {
+                    currMode === 'Dark' ? (<BsMoon/>) : (<BsSun/>)
+                }
+            </span>
+        </ThemeState>
+        {/* theme light/dark */}
         <ThemeModeList>
             {
                 modeSettings.map((item, index) => (
-                    <li key={index}>
+                    <li key={index} onClick={()=>setMode(item)}>
                         <div className={`${item.background}`}>
                             {item.id === 'Sun' ? (<BsSun/>) : (<BsMoon/>)}
                         </div>
                         <span>{item.name}</span>
                     </li>
+                ))
+            }
+       
+        
+        </ThemeModeList>
+        {/* theme color */}
+        <ThemeModeList>
+            {
+                colorSettings.map((item, index) => (
+                    <ThemeColorList color={item.background} key={index} onClick={()=>{
+                        setColor(item);
+                    }}></ThemeColorList>
                 ))
             }
         </ThemeModeList>

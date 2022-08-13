@@ -11,7 +11,6 @@ const Layout = ({children}) => {
     <>
         <Sidebar />
         <PagesWraper>
-          <Header/>
           <main>{children}</main>
         </PagesWraper>
     </>

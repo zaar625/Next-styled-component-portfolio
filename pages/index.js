@@ -1,5 +1,28 @@
+import Lottie from '../components/lottie/lottie'
 import Head from 'next/head'
+import Intro from '../components/intro'
+import styled from 'styled-components'
+import Skill from '../components/skill'
+import Header from '../components/header/header'
 
+const AboutContainer = styled.div`
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 2rem;
+`
+const AboutLayout = styled.div`
+  display: flex;
+`
+
+const AboutLayoutLeft = styled.div`
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-around;
+`
 export default function Home() {
   return (
     <div >
@@ -10,7 +33,16 @@ export default function Home() {
       </Head>
 
       <main >
-        Hello
+        <AboutContainer>
+          <Header item={['긍정적인','배움을 즐기는', '열정있는']}/>
+          <AboutLayout>
+            <AboutLayoutLeft>
+              <Intro/>
+              <Skill/>
+            </AboutLayoutLeft>
+            <Lottie/>
+          </AboutLayout>
+        </AboutContainer>
       </main>
 
 
