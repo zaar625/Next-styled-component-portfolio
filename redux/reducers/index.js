@@ -1,6 +1,6 @@
 import ThemeReducer from './ThemeReducer';
 import { combineReducers } from 'redux';
 
-const rootRedcer = combineReducers({ThemeReducer});
+const rootReducer = combineReducers({ThemeReducer});
 
-export default rootRedcer;
+export default rootReducer;

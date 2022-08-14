@@ -23,26 +23,26 @@ const colorSettings = [
     {
         id:'green',
         name:'green',
-        background: 'green',
-        class:'them-color-green'
+        background: '#1AB395',
+        class:'theme-color-green'
     },
     {
         id:'pink',
         name:'pink',
-        background: 'pink',
-        class:'them-color-pink'
+        background: '#F68657',
+        class:'theme-color-pink'
     },
     {
         id:'yellow',
         name:'yellow',
-        background: 'yellow',
-        class:'them-color-yellow'
+        background: '#FAC70F',
+        class:'theme-color-yellow'
     },
     {
         id:'apricot',
         name:'apricot',
-        background: 'gray',
-        class:'them-color-apricot'
+        background: '#F68657',
+        class:'theme-color-apricot'
     },
 ]
 
@@ -60,6 +60,10 @@ const ThemeState = styled.div`
     justify-content: end;
     border-bottom: solid 2px rgba(207,207, 207, 0.445);
     padding-bottom: 10px;
+    
+    & span svg {
+        color: var(--txt-color);
+    }
 `
 
 const ThemeModeList = styled.ul`
@@ -74,8 +78,8 @@ const ThemeModeList = styled.ul`
         gap: 0.5rem;
         cursor: pointer;
 
-        &.modeList-color {
-
+        & > div svg, & span{
+            color: var(--txt-color);
         }
     }
 `
@@ -86,7 +90,6 @@ const ThemeColorList = styled.li`
     height: 15px;
     border-radius: 50%;
 `
-
 const Theme = () => {
     const [currMode, setCurrMode] = useState('Dark'); //배경색 상태
     const [currColor, setcurrColor] = useState('yellow')
@@ -121,6 +124,7 @@ const Theme = () => {
                     currMode === 'Dark' ? (<BsMoon/>) : (<BsSun/>)
                 }
             </span>
+            <ThemeColorList color={currColor}/>
         </ThemeState>
         {/* theme light/dark */}
         <ThemeModeList>

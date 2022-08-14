@@ -21,20 +21,19 @@ const clickOutsideRef = (contentRef, toggleRef) => {
 
 }
 //sytle
-const SettingContainer = styled.div`
+export const SettingContainer = styled.div`
     position: relative;
 `
-const SettingDropToggle = styled.div`
+export const SettingDropToggle = styled.div`
     & button {
         font-size: 1.5rem;
-        color:var(--txt-color);
-
+        color: var(--txt-color);
         &:hover {
             color: var(--main-color);
         }
     }
 `
-const SettingDropContent = styled.div`
+export const SettingDropContent = styled.div`
     padding: .5rem;
     position: absolute;
     right: 0;

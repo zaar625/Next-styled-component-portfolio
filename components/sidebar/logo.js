@@ -38,7 +38,7 @@ const Lee = styled(lee)`
     left: 0;
     top: -2rem;
     transform: rotate(-25deg);
-    animation: ${TextFillAnimation} 0.5s ease forwards 4.5s;
+    animation: ${TextFillAnimation} 0.5s ease forwards 4s;
 
     & path {
         stroke: var(--main-color);
@@ -69,7 +69,6 @@ const Lee = styled(lee)`
 //LogoPortfolio styled component
 
 const Portfolio = styled(portfolio)`
-    animation: ${TextFillAnimation} 0.5s ease forwards 4s;
 
     & path {
         stroke: var(--txt-color);

@@ -70,8 +70,8 @@ const Intro = () => {
             </ItroContent>
         </ItroWrapper>
         <Sns>
-            <p><AiFillGithub/></p>
-            <p><BsBookmarksFill/></p>
+            <p><AiFillGithub/>Github</p>
+            <p><BsBookmarksFill/>TIL</p>
         </Sns>
     </IntroContainer>
   )

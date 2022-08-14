@@ -1,18 +1,33 @@
-import styled from "styled-components"
-import Header from "./header/header"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import ThemeAction from '../redux/actions/ThemeActions'
+import styled ,{ThemeProvider}from "styled-components"
 import Sidebar from "./sidebar/sidebar"
+import GlobalStyle from "../styles/GlobalStyle"
 
 const PagesWraper = styled.div`
   padding-left: 16.5%;
 `
 
 const Layout = ({children}) => {
+  const themeReducer = useSelector(state => state.ThemeReducer);
+  const dispatch = useDispatch();
+
+  console.log(themeReducer)
+  useEffect(()=>{
+    const themeClass = localStorage.getItem('themeMode');
+    const colorClass = localStorage.getItem('colorMode');
+    dispatch(ThemeAction.setMode(themeClass));
+    dispatch(ThemeAction.setColor(colorClass));
+  },[dispatch])
+
   return (
     <>
-        <Sidebar />
-        <PagesWraper>
-          <main>{children}</main>
-        </PagesWraper>
+        <GlobalStyle themeReducer={themeReducer}/>
+          <Sidebar />
+          <PagesWraper>
+            <main>{children}</main>
+          </PagesWraper>
     </>
   )
 }

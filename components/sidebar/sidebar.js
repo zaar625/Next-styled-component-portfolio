@@ -73,16 +73,16 @@ const LinksWrapper = styled.nav`
 
       &:hover {
         background-color: var(--main-color);
-        a {
+        /* a {
           color: #000;
-        }
+        } */
       }
 
       a {
         text-decoration: none;
         display: flex;
         gap: 1rem;
-        color: var(--txt-color);
+        /* color: var(--txt-color); */
         align-items: center;
       }
 

@@ -8,7 +8,6 @@ const HeaderCotainer = styled.div`
     padding: 1rem;
     display: flex;
     justify-content: space-between;
-    color: var(--txt-color);
 `
 const HeaderTitle = styled.h1`
     margin-bottom: 10px;

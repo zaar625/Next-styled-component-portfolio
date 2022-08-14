@@ -1,4 +1,21 @@
-import { createGlobalStyle } from "styled-components";
+import  { createGlobalStyle, css } from "styled-components";
+
+
+const handleColorType = color => {
+  switch (color) {
+    case "theme-color-yellow":
+      return "#FAC70F";
+    case "theme-color-green":
+      return "#1AB395";
+    case "theme-color-pink":
+      return "#F68657";
+    case "theme-color-apricot":
+      return "#F68657";
+    default:
+      return "#FAC70F";
+  }
+};
+
 
 const GlobalStyle = createGlobalStyle`
 //초기화
@@ -15,10 +32,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
     font-display: swap;
-    // font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
-    background-color: #000;
-    color:white
+    background-color: ${props => props.themeReducer.mode === 'theme-mode-dark' ? "#000" : "#FFF"};
+    color:${props => props.themeReducer.mode === 'theme-mode-dark' ? "#FFF" : "#000"};
   }
 
   a {
@@ -36,29 +52,23 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     border: 0;
     outline: 0;
-    color:white;
   }
   
   :root {
     // 기본설정
-    --main-bg:#000;
-    --main-bg-light: #fff;
-    --second-bg: #212121;
-    --txt-color: #fff;
-    --main-color:#FAC70F;
+    --main-bg:${props => props.themeReducer.mode === 'theme-mode-dark' ? "#000" : "#FFF"};
+    --second-bg: ${props => props.themeReducer.mode === 'theme-mode-dark' ? "#212121" : "#EFEEE9"};;
+    --txt-color:${props => props.themeReducer.mode === 'theme-mode-dark' ? "#FFF" : "#000"};;
+    --main-color : ${props => handleColorType(props.themeReducer.color)};
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-    // 라이트설정
-    --main-bg-light: #fff;
-    --second-bg-light: #EFEEE9;
-    --txt-color-light: #000;
     --box-shadow-light: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-    //메인테마컬러 설정
-    --main-color-apricot: #F6B352;
-    --main-color-yellow: #FAC70F;
-    --main-color-green: #1AB395;
-    --main-color-pink: #F68657;
   }
 `;
+
+export const CardStyle = css`
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--second-bg);
+  color: var(--txt-color);
+`
 export default GlobalStyle;
