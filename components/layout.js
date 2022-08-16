@@ -13,7 +13,6 @@ const Layout = ({children}) => {
   const themeReducer = useSelector(state => state.ThemeReducer);
   const dispatch = useDispatch();
 
-  console.log(themeReducer)
   useEffect(()=>{
     const themeClass = localStorage.getItem('themeMode');
     const colorClass = localStorage.getItem('colorMode');
