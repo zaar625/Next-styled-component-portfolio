@@ -4,6 +4,8 @@ import ContactInfo from "../components/contact/contactInfo"
 import Header from "../components/header/header"
 import ContactComment from "../components/contact/contactComment"
 import ContactForm from "../components/contact/contactForm"
+import KaKao from "../components/map"
+import Head from "next/head"
 
 const ContactContainer = styled.div`
   display: flex;
@@ -33,18 +35,25 @@ const ContactInfoWrapper = styled.div`
 `
 const Contact = () => {
   return (
-    <ContactContainer>
-      <Header item={['겸손하게 부족한 부분을 채워가며 성장하는 개발자가 되겠습니다.']}/>
-      <ContactHeader>
-        <p>get in touch</p>
-        <h1>Contact</h1>
-      </ContactHeader>
-      <ContactInfoWrapper>
-        <ContactInfo/>
-        <ContactForm/>
-      </ContactInfoWrapper>
-      <ContactComment/>
-    </ContactContainer>
+    <>
+      <Head>
+        <title>About Codevolution</title>
+        <meta name="description" content='Free tutorials on web development'></meta>
+      </Head>
+      <ContactContainer>
+        <Header item={['겸손하게 부족한 부분을 채워가며 성장하는 개발자가 되겠습니다.']}/>
+        <ContactHeader>
+          <p>get in touch</p>
+          <h1>Contact</h1>
+        </ContactHeader>
+        <ContactInfoWrapper>
+          <ContactInfo/>
+          <ContactForm/>
+        </ContactInfoWrapper>
+        <ContactComment/>
+        <KaKao/>
+      </ContactContainer>
+    </>
   )
 }
 
