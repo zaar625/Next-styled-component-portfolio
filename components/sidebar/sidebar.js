@@ -63,6 +63,7 @@ const LinksWrapper = styled.nav`
     flex-direction: column;
     gap:1rem;
     width: 100%;
+    cursor: pointer;
 
     li {
       padding: 0.6rem 1rem;

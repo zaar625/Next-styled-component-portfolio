@@ -8,7 +8,9 @@ import GlobalStyle from "../styles/GlobalStyle"
 const PagesWraper = styled.div`
   padding-left: 16.5%;
 `
-
+const MainLayOut = styled.main`
+padding: 1rem;
+`
 const Layout = ({children}) => {
   const themeReducer = useSelector(state => state.ThemeReducer);
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const Layout = ({children}) => {
         <GlobalStyle themeReducer={themeReducer}/>
           <Sidebar />
           <PagesWraper>
-            <main>{children}</main>
+            <MainLayOut>{children}</MainLayOut>
           </PagesWraper>
     </>
   )

@@ -8,6 +8,7 @@ const ContactInfoContainer = styled.div`
     margin: auto;
     flex-direction: column;
     gap: 1rem;
+    width: 67%;
 
     @media only screen and (max-width:1024px){
         &::before {

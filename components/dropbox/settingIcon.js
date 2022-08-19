@@ -40,7 +40,7 @@ export const SettingDropContent = styled.div`
     top: calc(100% +15px);
     max-width: 300px;
     width: max-content;
-    background-color: var(--second-bg);
+    background:var(--second-bg);
     transform: scale(0);
     box-shadow: var(--box-shadow);
     border-radius: 10%;
@@ -74,7 +74,7 @@ const SettingIcon = () => {
                 <IoIosSettings/>
             </button>
         </SettingDropToggle>
-        <SettingDropContent ref={dropdownContent}>
+        <SettingDropContent theme ref={dropdownContent}>
             <Theme/>
         </SettingDropContent>
     </SettingContainer>

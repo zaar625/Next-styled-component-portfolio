@@ -23,7 +23,11 @@ const ItroWrapper = styled.div`
 `
 const ImgStyling = styled.div`
     width: 16%;
-    border-radius:15px;
+    /* border-radius:15px; */
+
+    & span {
+        border-radius:15px;
+    }
 `
 const ItroContent = styled.div`
     & p {
@@ -37,6 +41,7 @@ const Sns = styled.div`
     display: flex;
     gap: 1rem;
     justify-content: end;
+    cursor: pointer;
 
     & p {
         display: flex;

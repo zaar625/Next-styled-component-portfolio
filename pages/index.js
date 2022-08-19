@@ -13,15 +13,16 @@ const AboutContainer = styled.div`
   gap: 2rem;
 `
 const AboutLayout = styled.div`
+  width: 100%;
   display: flex;
 `
 
 const AboutLayoutLeft = styled.div`
-  width: 60%;
+  width: 58%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  justify-content: space-around;
+  justify-content: space-between;
 `
 export default function Home() {
   return (

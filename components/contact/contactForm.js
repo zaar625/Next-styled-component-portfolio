@@ -4,6 +4,7 @@ import { CardStyle } from '../../styles/GlobalStyle'
 
 const ContactFormContainer = styled.div`
     margin: auto;
+    width: 67%;
 
     ${(props) =>
     props.cardstyle}

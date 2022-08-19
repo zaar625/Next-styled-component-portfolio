@@ -10,7 +10,6 @@ import Head from "next/head"
 const ContactContainer = styled.div`
   display: flex;
   flex-direction:column;
-  margin-top: 2rem;
   gap: 1rem;
 `
 const ContactHeader = styled.div`
@@ -33,6 +32,11 @@ const ContactInfoWrapper = styled.div`
     gap:2rem;
   }
 `
+const ContactInfoStyle = styled.div`
+  width: 50%;
+  border-right: solid 2px rgba(136, 136, 136, 0.448);
+`
+const ContactFormStyle = styled(ContactInfoStyle)``
 const Contact = () => {
   return (
     <>
@@ -47,8 +51,12 @@ const Contact = () => {
           <h1>Contact</h1>
         </ContactHeader>
         <ContactInfoWrapper>
-          <ContactInfo/>
-          <ContactForm/>
+          <ContactInfoStyle>
+            <ContactInfo/>
+          </ContactInfoStyle>
+          <ContactFormStyle>
+            <ContactForm/>
+          </ContactFormStyle>
         </ContactInfoWrapper>
         <ContactComment/>
         <KaKao/>

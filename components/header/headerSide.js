@@ -12,6 +12,7 @@ const HeaderSideUser = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 
     @media only screen and (max-width: 1024px){
         margin-bottom: 15px;

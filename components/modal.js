@@ -5,9 +5,10 @@ import styled from "styled-components"
 const ModalConatainer = styled.div`
     font-size: 0.825rem;
     padding: 1rem;
-    background: #EFEEE9;
+    /* background: #EFEEE9; */
     border-radius: 8px;
     color: rgb(28,27,27);
+    color: var(--txt-color);
 `
 const ModalList = styled.ul`
     & li {
