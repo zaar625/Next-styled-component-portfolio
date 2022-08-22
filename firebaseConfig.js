@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore'
 const firebaseConfig = {
-    apiKey: "AIzaSyCwaYrEoyzhq2UXJgvvs4AjXFlnwiJWt54",
+    apiKey: `${process.env.API_KEY_FIREBASE}`,
     authDomain: "next-portfolio-1faec.firebaseapp.com",
     projectId: "next-portfolio-1faec",
     storageBucket: "next-portfolio-1faec.appspot.com",

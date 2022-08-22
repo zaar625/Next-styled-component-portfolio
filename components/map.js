@@ -1,13 +1,26 @@
-import { Map, MapMarker,CustomOverlay1Style,CustomOverlayMap } from "react-kakao-maps-sdk"
+import { Map, MapMarker,CustomOverlayMap } from "react-kakao-maps-sdk"
+import { motion } from "framer-motion"
+import styled from "styled-components"
+import { CardStyle } from "../styles/GlobalStyle"
 import KaKaoMap from '../public/map.png'
 
+const MapContainer = styled.div`
+  ${(props) =>
+    props.cardstyle}
+`
 function KaKao() {
   console.log(KaKaoMap.src)
   return (
-    <>
+    <MapContainer 
+      cardstyle={CardStyle}
+      as={motion.div} 
+      initial={{ opacity: 0, y: 80 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5 , delay: 1.5}}
+      >
       <Map
         center={{ lat: 37.475875, lng: 126.979886 }}
-        style={{ width: "100%", height: "360px" }}
+        style={{ width: "100%", height: "200px" }}
         level={3}
         draggable={false}
       >
@@ -43,7 +56,7 @@ function KaKao() {
       
       </Map>
      
-    </>
+    </MapContainer>
   )
 }
 

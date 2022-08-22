@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 const CommentViewContainer = styled.div`
+    width: 16.5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -8,6 +9,16 @@ const CommentViewContainer = styled.div`
     background-color: var(--main-bg);
     border-radius: 20px;
     padding: 1rem;
+
+    & .line {
+        border-top: solid 2px rgba(85, 85, 85, 0.678);
+    }
+    @media only screen and (max-width:1024px){
+        width: 35.5%;
+    }
+    @media only screen and (max-width:767px){
+        width: 100%;
+    }
 `
 const CommentViewHeader = styled.div`
     display: flex;

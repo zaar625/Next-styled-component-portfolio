@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { CardStyle } from '../../styles/GlobalStyle';
-import { FiSend } from "react-icons/fi";
+import { BiSend } from "react-icons/bi";
 import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { database } from '../../firebaseConfig';
 import CommentView from './commentView';
@@ -32,7 +33,7 @@ const CommentWrite = styled.div`
   gap: 2rem;
 `
 const CommentWriteUser = styled.div`
-  width: 17%;
+  width: 16.5%;
 
   & > label{
     position:absolute;
@@ -40,7 +41,19 @@ const CommentWriteUser = styled.div`
   }
 
   & > input {
+    width: 100%;
+    font-size: 0.825rem;
+    padding: 1.2rem;
+    color: gray;
+    background-color: var(--main-bg);
+    outline: none;
+    border: none;
+    border-radius: 8px;
     height: 55px;
+
+    &:focus {
+        border: solid 1px var(--main-color);
+    }
   }
 
   @media only screen and (max-width:767px){
@@ -48,7 +61,7 @@ const CommentWriteUser = styled.div`
   }
 `
 const CommentWriteComment = styled.div`
-  width: 42%;
+  width: 41.5%;
 
   & > label{
     position:absolute;
@@ -57,6 +70,20 @@ const CommentWriteComment = styled.div`
 
   & > textarea {
     height: 55px;
+    width: 100%;
+    font-size: 0.825rem;
+    padding: 1.2rem;
+    color: gray;
+    background-color: var(--main-bg);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    height: 55px;
+    font-family: initial;
+
+    &:focus {
+        border: solid 1px var(--main-color);
+    }
   }
 
   @media only screen and (max-width:767px){
@@ -86,14 +113,14 @@ const CommentPageNav = styled.div`
 `
 const PagesNum= styled.div`
   width: 30px;
-  height: 30ox;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 
-  & .active {
+  &.active {
     background-color: var(--main-bg);
     color: var(--txt-color);
     font-weight: 600;
@@ -150,7 +177,10 @@ const ContactComment = () => {
     }
     if(blogItem !== ''){
       // Add a new document ]
-      addDoc(databaseRef,blogItem).then(()=> alert('내용이 업로드 되었습니다.')).catch((err)=>{
+      addDoc(databaseRef,blogItem).then(()=> {
+        alert('내용이 업로드 되었습니다.'); 
+        window.location.replace('/contact');})
+        .catch((err)=>{
         alert('업로드에 실패하였습니다.');
       })
     }
@@ -166,10 +196,8 @@ const ContactComment = () => {
       })
     }
   }
-
-  //마운트 되면 파이어베이스 데이터 받아오기.
-  useEffect(()=>{
-   const PostData = async()=> {
+  //게시물 가져오기 함수
+  const PostGetData = async()=> {
     let postData = [];
     const fireData = await getDocs(databaseRef)
     fireData.forEach((doc)=> {
@@ -181,12 +209,21 @@ const ContactComment = () => {
     })
     postData.sort((a, b) => a.data.time < b.data.time ? 1 : (a.data.time > b.data.time ? -1 : 0))
     setUserData(postData);
+    setDataShow(postData.slice(0, Number(limit)));
    }
-   PostData();
+  //마운트 되면 파이어베이스 데이터 받아오기.
+  useEffect(()=>{
+   PostGetData();
   },[])
 
   return (
-    <CommentContainer cardstyle={CardStyle}>
+    <CommentContainer 
+      cardstyle={CardStyle}
+      as={motion.div} 
+      initial={{ opacity: 0, y: 80 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5 , delay: .5}}
+      >
       <CommentHeader>
         <h3>Comment</h3>
         <div></div>
@@ -200,12 +237,12 @@ const ContactComment = () => {
           <textarea name='content' type='text' onChange={onChange} placeholder="write your comment"/>
           <label>comment</label>
         </CommentWriteComment>
-        <Button onClick={Upload}><FiSend/></Button>
+        <Button onClick={Upload}><BiSend/></Button>
       </CommentWrite>
       <CommentShow>
         {
           //유저 게시글 가져오기
-          dataShow.map((item, index) => (
+          dataShow.map((item) => (
             <CommentView item={item} key={item.id} index={item.id} ItemDelete = {ItemDelete}/>
           ))
         }
@@ -214,7 +251,7 @@ const ContactComment = () => {
         {
           pages >= 1 ? 
             range.map((item, index) =>(
-              <PagesNum className={`${currPage === index ? 'active': ''}`} onClick={()=>selectPage(index)}>{item + 1}</PagesNum>
+              <PagesNum key={index} className={`${currPage === index ? 'active': ''}`} onClick={()=>selectPage(index)}>{item + 1}</PagesNum>
             )) : null
         }
       </CommentPageNav>

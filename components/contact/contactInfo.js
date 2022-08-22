@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { motion } from "framer-motion";
 import { BsFillTelephoneFill, BsFillEnvelopeFill,BsFillPinMapFill } from "react-icons/bs";
 import { CardStyle } from "../../styles/GlobalStyle"
 
@@ -46,7 +47,12 @@ const ContactInfoIconBoxInner = styled.div`
 
 const ContactInfo = () => {
   return (
-    <ContactInfoContainer>
+    <ContactInfoContainer
+        as={motion.div}
+        initial={{ opacity: 0, y: 80 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 , delay: .7}}
+    >
         <ContactInfoIconBox cardstyle={CardStyle}>
             <ContactInfoIconBoxInner>
                 <BsFillTelephoneFill/>

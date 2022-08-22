@@ -33,6 +33,9 @@ const HeaderSide = () => {
             </ImageWrapper>
             <DropBox/>
         </HeaderSideUser>
+        <div>
+            <p>반갑습니다. <br/>저의 사이트에 오신걸 환영합니다.</p>
+        </div>
     </HeaderSideContainer>
   )
 }

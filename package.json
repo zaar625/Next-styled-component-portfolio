@@ -12,7 +12,9 @@
     "@reduxjs/toolkit": "^1.8.4",
     "axios": "^0.27.2",
     "babel-plugin-styled-components": "^2.0.7",
+    "file-loader": "^6.2.0",
     "firebase": "^9.9.2",
+    "framer-motion": "^7.2.0",
     "lottie-web": "^5.9.6",
     "next": "12.2.4",
     "next-redux-wrapper": "^7.0.5",
@@ -24,7 +26,8 @@
     "react-rotating-text": "^1.4.1",
     "redux": "^4.2.0",
     "scrollreveal": "^4.0.9",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.1",

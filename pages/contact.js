@@ -1,5 +1,6 @@
 
 import styled from "styled-components"
+import { motion } from "framer-motion"
 import ContactInfo from "../components/contact/contactInfo"
 import Header from "../components/header/header"
 import ContactComment from "../components/contact/contactComment"
@@ -46,7 +47,12 @@ const Contact = () => {
       </Head>
       <ContactContainer>
         <Header item={['겸손하게 부족한 부분을 채워가며 성장하는 개발자가 되겠습니다.']}/>
-        <ContactHeader>
+        <ContactHeader
+          as={motion.div} 
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 , delay: .5}}
+        >
           <p>get in touch</p>
           <h1>Contact</h1>
         </ContactHeader>

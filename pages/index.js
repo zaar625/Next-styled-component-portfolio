@@ -39,9 +39,9 @@ export default function Home() {
           <AboutLayout>
             <AboutLayoutLeft>
               <Intro/>
-              <Skill/>
+              <Skill className='reveal-skill'/>
             </AboutLayoutLeft>
-            <Lottie/>
+            <Lottie className='reveal-lottie'/>
           </AboutLayout>
         </AboutContainer>
       </main>

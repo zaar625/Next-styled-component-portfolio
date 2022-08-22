@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import skillImage from '../public/aboutPage/skill-img.png'
 
 const SkillContainer = styled.div`
@@ -46,7 +47,12 @@ const Skills = styled.div`
 const Skill = () => {
     const skill = ['HTML5','CSS3','SCSS','Styled-component','Javascript','Typescript','React','Next.js', 'Vue', 'fireBase']
   return (
-    <SkillContainer>
+    <SkillContainer
+    as={motion.div} 
+    initial={{ opacity: 0, y: 80 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.5, delay:.5}}
+    >
         <h1>What I used Skill</h1>
         <UsedSkill>
             <ImgStyling><Image src={skillImage} alt="skill image"/></ImgStyling>

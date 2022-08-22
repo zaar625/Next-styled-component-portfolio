@@ -1,15 +1,16 @@
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { CardStyle } from '../../styles/GlobalStyle'
 import axios from 'axios';
-import clear from '../../public/miniPage/clear.jpeg'
-import cloud from '../../public/miniPage/cloud.jpeg'
-import rain from '../../public/miniPage/rain.jpeg'
-import snow from '../../public/miniPage/snow.jpeg'
+import clear from '../../public/miniPage/weather/clear.jpeg'
+import cloud from '../../public/miniPage/weather/cloud.jpeg'
+import rain from '../../public/miniPage/weather/rain.jpeg'
+import snow from '../../public/miniPage/weather/snow.jpeg'
 
 const api = {
-    key: '52adf1bb16f14bf661b1190e2e4d45db',
+    key: "52adf1bb16f14bf661b1190e2e4d45db",
     base: "https://api.openweathermap.org/data/2.5/"
 }
 
@@ -37,7 +38,6 @@ const WeatherContainer = styled.div`
     display: flex;
     width: 33.3%;
 
-
     ${(props) =>
     props.cardstyle}
 
@@ -48,11 +48,15 @@ const WeatherContainer = styled.div`
 const WeatherWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 1.5rem;
     padding: 1rem;
     border-radius:20px;
-    margin: auto;
     background-image: ${({bg}) => `url(${bg})`};
+
+    & h2 {
+        text-align: center;
+    }
 `
 const WeatherAreas = styled.div`
     display: flex;
@@ -60,7 +64,8 @@ const WeatherAreas = styled.div`
     gap: 1rem;
 
     & div {
-        background-color: var(--main-color);
+        background-color: var(--main-bg);
+        padding: 0.5rem 0.8rem;
         border-radius: 20px;
         color: var(--txt-color);
         font-size: 0.825rem;
@@ -105,6 +110,7 @@ const WeatherPre = styled.div`
     gap: 1rem;
     flex-flow: wrap;
     text-align: center;
+    justify-content: space-between;
 
     & div {
         display: flex;
@@ -153,11 +159,16 @@ const Weather = () => {
     },[]);
     
   return (
-    <WeatherContainer cardstyle={CardStyle}>
+    <WeatherContainer 
+        cardstyle={CardStyle}
+        as={motion.div} 
+        initial={{ opacity: 0, y: 80 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 , delay: 1}}>
         {
             Object.keys(weather).length !== 0 ? (
                 <WeatherWrapper bg={background(weather.weather[0].main)}>
-                    <h2>openweathermap</h2>
+                    <h2>OpenWeatherMap API</h2>
                     <WeatherAreas>
                         {
                             locationData.map((item, index) => (

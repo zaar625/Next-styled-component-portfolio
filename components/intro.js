@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import Introbg from "../public/aboutPage/mine.jpg"
 import { BsBookmarksFill } from "react-icons/bs"
 import {AiFillGithub} from "react-icons/ai"
@@ -61,7 +62,12 @@ const Sns = styled.div`
 `
 const Intro = () => {
   return (
-    <IntroContainer>
+    <IntroContainer 
+    as={motion.div} 
+    initial={{ opacity: 0, y: 80 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.5}}
+    >
         <h1>LEE SANG YOON</h1>
         <ItroWrapper>
             <ImgStyling> <Image src={Introbg} alt="my image"/></ImgStyling>
