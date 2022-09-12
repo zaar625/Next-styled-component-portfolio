@@ -1,20 +1,31 @@
 import { useRouter } from "next/router"
 import styled from "styled-components";
 import sidebarNav from "../../configs/sidebarNav";
+import HeaderSide from "../header/headerSide";
 import SidebarItem from "./sidebarItem";
 
 const ReponsiveNavbar = styled.div`
   position: fixed;
-  right: ${props => props.navbarState ? "0%" : "-58.33%"};
+  right: ${props => props.state ? "0%" : "-58.33%"};
   top: 0;
   z-index: 10;
   background-color: var(--main-bg);
   height: 100vh;
-  width: 58.33%;
-  transition:0.4s ease-in-out;
+  transition: right 0.4s ease-in-out;
   display: none;
+  top: 0;;
   gap: 1rem;
   padding: 5rem 1rem;
+
+  @media only screen and (max-width: 1024px){
+        display: ${props => props.state ? "block" : "none"};
+        width: 35%;
+    }
+
+  @media only screen and (max-width: 767px){
+        display: ${props => props.state ? "block" : "none"};
+        width: 60%;
+    }
 `
 const ResponsiveNavContainer = styled.div`
   display: flex;
@@ -25,13 +36,18 @@ const ResponsiveNavLinks = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+
   ul {
+    width: 100%;
     list-style-type:none;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 
     li{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
       padding: 0.6rem 1rem;
       border-radius: 0.6rem;
 
@@ -66,12 +82,12 @@ const ResponsiveNavLinks = styled.div`
 //반응형 nav
 const ReponsiveNav = (props) => {
     const router = useRouter();
-    // console.log(props)
+    const state = props.navbarState;
     const activeItem = sidebarNav.findIndex(i => i.link === router.pathname);
   return (
-    <ReponsiveNavbar>
+    <ReponsiveNavbar state={state}>
       <ResponsiveNavContainer>
-        {props.children}
+        <HeaderSide state={state}/>
         <ResponsiveNavLinks>
           <ul>
             {

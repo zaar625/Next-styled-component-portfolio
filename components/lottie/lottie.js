@@ -6,11 +6,15 @@ import styled from 'styled-components'
 
 const LottieContainer = styled.div`
     width: 40%;
+
+    @media only screen and (max-width: 1024px){
+      align-self:flex-end;
+    }
 `
 const Lottie = () => {
     const container = useRef();
     useEffect(()=>{
-        console.log(container)
+        
         lottie.loadAnimation({
             container:container.current,
             render:'svg',

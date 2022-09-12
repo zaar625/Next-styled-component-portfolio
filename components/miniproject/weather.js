@@ -53,9 +53,17 @@ const WeatherWrapper = styled.div`
     padding: 1rem;
     border-radius:20px;
     background-image: ${({bg}) => `url(${bg})`};
-
+    
     & h2 {
         text-align: center;
+    }
+
+    @media only screen and (max-width:1024px){
+        width: 80%;
+        margin: auto;
+    }
+    @media only screen and (max-width:767px){
+        width: 100%;
     }
 `
 const WeatherAreas = styled.div`
@@ -121,7 +129,6 @@ const WeatherPre = styled.div`
 const Weather = () => {
     const [weather, setWeather] = useState([]);
     const [preweather, setPreWeather] = useState([]);
-    console.log(preweather)
 
     //지역 날씨 가져오기
     const weatherFetch = async(location) => {

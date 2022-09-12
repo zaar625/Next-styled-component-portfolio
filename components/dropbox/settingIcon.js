@@ -43,7 +43,7 @@ export const SettingDropContent = styled.div`
     background:var(--second-bg);
     transform: scale(0);
     box-shadow: var(--box-shadow);
-    border-radius: 10%;
+    border-radius: 10px;
     overflow: hidden;
     transform-origin: top right;
     transition: transform 0.3s ease 0s;
@@ -62,7 +62,7 @@ const SettingIcon = () => {
 
 
         if(process.browser){
-            console.log('실행')
+            
             clickOutsideRef(dropdownContent, dropdownToggle)
         }
 

@@ -7,7 +7,6 @@ const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  /* transform: rotateY(180deg); */
   animation: 2s hideCard linear;
   transition: transform 0.5s;
   transform: ${props => props.active ? 'rotateY(0deg)' : 'rotateY(180deg)'};
@@ -26,7 +25,7 @@ const Card = ({item, index, handleClick}) => {
 
   return (
       <CardContainer 
-        active={itemClass} onClick={() => {console.log(index); handleClick(index)}}>
+        active={itemClass} onClick={() => {handleClick(index)}}>
           <img src={item.img} alt="챔피언 이미지" />
       </CardContainer>
   )

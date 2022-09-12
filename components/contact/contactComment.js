@@ -31,6 +31,10 @@ const CommentWrite = styled.div`
   flex-flow: wrap;
   align-items: center;
   gap: 2rem;
+
+  @media only screen and (max-width:1024px){
+        justify-content: center;
+    }
 `
 const CommentWriteUser = styled.div`
   width: 16.5%;
@@ -103,6 +107,10 @@ const CommentShow = styled.div`
   display: flex;
   gap: 1rem;
   flex-flow:wrap;
+
+  @media only screen and (max-width:1024px){
+        justify-content: center;
+    }
 `
 const CommentPageNav = styled.div`
   display: flex;

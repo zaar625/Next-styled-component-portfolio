@@ -12,8 +12,8 @@ const ProjectCardContainer = styled.div`
     ${(props) =>
     props.cardstyle}
 
-    @media only screen and(max-width:1024px){
-        flex-direction: column;
+    @media only screen and (max-width: 1024px){
+      flex-direction: column;
     }
 `
 const Imagewrapper = styled.div`
@@ -24,17 +24,7 @@ const Imagewrapper = styled.div`
         height: auto;
     }
 
-    /* &:hover ${CardHoverEffect} {
-        opacity: 1;
-        & h1 {
-            transform: translateX(0px);
-        }
-    }
-    &:hover ${View}{
-        transform: translateX(0px);
-    } */
-
-    @media only screen and(max-width:1024px){
+    @media only screen and (max-width:1024px){
         width: 100%;
     }
 `
@@ -102,13 +92,19 @@ const CardDescription = styled.div`
     @media only screen and (max-width:767px){
         font-size: 0.825rem;
     }
-    & div {
+    & li {
         display: flex;
         align-items: center;
 
         svg{
             margin-right:10px;
             font-size: 0.825rem;
+        }
+        
+        & p {
+            @media only screen and (max-width: 767px){
+                width: 90%;
+            }
         }
     }
 `
@@ -136,10 +132,10 @@ const ProjectCard = ({data, num}) => {
         <CardDescription>
             {
             data.des.map((des,index) => (
-            <div key={index}>
+            <li key={index}>
                 <AiOutlineCheckSquare/>
                 <p>{des}</p>
-            </div>
+            </li>
             ))
             }
         </CardDescription>

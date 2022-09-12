@@ -9,6 +9,10 @@ const ContactFormContainer = styled.div`
 
     ${(props) =>
     props.cardstyle}
+
+    @media only screen and (max-width:767px){
+        width: 100%;
+    }
 `
 
 const ContactFormGroup = styled.div`

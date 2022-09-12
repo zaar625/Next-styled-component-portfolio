@@ -32,7 +32,6 @@ const Cards = () => {
     { id: 8, img: './miniPage/game/Pantheon.png', stat: "" }
 ].sort(() => Math.random() - 0.5))
 
-console.log(items)
 const [prev, setPrev] = useState(-1)//카드 이전값
 
 //정답인지 체크하기

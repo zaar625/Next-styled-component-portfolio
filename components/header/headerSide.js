@@ -7,6 +7,10 @@ const HeaderSideContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    @media only screen and (max-width: 1024px){
+        display: ${props => props.state ? 'block' : 'none'};
+    }
 `
 const HeaderSideUser = styled.div`
     display: flex;
@@ -15,6 +19,7 @@ const HeaderSideUser = styled.div`
     gap: 1rem;
 
     @media only screen and (max-width: 1024px){
+        /* display: none; */
         margin-bottom: 15px;
     }
 `
@@ -24,9 +29,9 @@ const ImageWrapper = styled.div`
     border-radius: 50%;
     overflow: hidden;
 `
-const HeaderSide = () => {
+const HeaderSide = ({state}) => {
   return (
-    <HeaderSideContainer>
+    <HeaderSideContainer state={state}>
         <HeaderSideUser>
             <ImageWrapper>
                 <Image src={me} alt='My picture'/>

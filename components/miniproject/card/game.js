@@ -10,7 +10,7 @@ const GameContainer = styled.div`
   justify-content: flex-start;
   width: 25%;
 
-  @media only screen and(max-width:1024px){
+  @media only screen and (max-width:1024px){
     width: 100%;
   }
 

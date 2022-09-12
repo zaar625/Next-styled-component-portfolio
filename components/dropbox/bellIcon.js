@@ -44,7 +44,6 @@ const BellIcon = () => {
 
 
         if(process.browser){
-            console.log('실행')
             clickOutsideRef(dropdownContent, dropdownToggle)
         }
   return (

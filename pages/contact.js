@@ -36,14 +36,18 @@ const ContactInfoWrapper = styled.div`
 const ContactInfoStyle = styled.div`
   width: 50%;
   border-right: solid 2px rgba(136, 136, 136, 0.448);
+
+  @media only screen and (max-width:1024px){
+        width: 100%;
+        border: none;
+    }
 `
 const ContactFormStyle = styled(ContactInfoStyle)``
 const Contact = () => {
   return (
     <>
       <Head>
-        <title>About Codevolution</title>
-        <meta name="description" content='Free tutorials on web development'></meta>
+        <title>이상윤 포트폴리오 | Contact</title>
       </Head>
       <ContactContainer>
         <Header item={['겸손하게 부족한 부분을 채워가며 성장하는 개발자가 되겠습니다.']}/>

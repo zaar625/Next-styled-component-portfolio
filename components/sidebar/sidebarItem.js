@@ -4,12 +4,12 @@ import Link from "next/link";
 const SidebarItem = props => {
     const active = props.active ? 'active' : '';
     return (
-      <li className={`${active}`} key={props.index}>
-        <a>{props.icon}</a>  
         <Link href={`${props.link}`} key={`nav-${props.index}`}>
-          <p>{props.text}</p>
+          <li className={`${active}`} key={props.index}>
+            <a>{props.icon}</a>  
+              <p>{props.text}</p>
+          </li>
         </Link>
-      </li>
     )
   }
 

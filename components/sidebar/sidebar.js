@@ -50,6 +50,10 @@ const LogoWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+
+  @media only screen and (max-width: 1024px){
+      flex-direction: row;
+    }
 `
 
 const LinksWrapper = styled.nav`
@@ -107,6 +111,12 @@ const LinksWrapper = styled.nav`
 
 const Toggle = styled.div`
   display: none;
+  z-index: 99;
+  @media only screen and (max-width: 1024px){
+        display: block;
+        
+
+    }
 
   & svg {
     font-size: 2rem;
@@ -118,7 +128,7 @@ const Toggle = styled.div`
 `
 const Sidebar = () => {
   const router = useRouter();
-  const [navbarState, setNavbarState] = useState(true);
+  const [navbarState, setNavbarState] = useState(false);
   const activeItem = sidebarNav.findIndex(i => i.link === router.pathname)
   
   return (
@@ -156,7 +166,7 @@ const Sidebar = () => {
           </LogoWrapper>
         </Top>
       </SidebarWrapper>
-      <ReponsiveNav navbarState={navbarState}/>
+      <ReponsiveNav navbarState={navbarState}></ReponsiveNav>
     </>
 
   )
