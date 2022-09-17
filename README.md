@@ -5,8 +5,7 @@
 <div>
 <img src="https://img.shields.io/badge/Next.js-black?style=flat&logo=Next.js&logoColor=white">
 <img src="https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat&logo=Redux&logoColor=white">
-<img src="https://img.shields.io/badge/styledComponents
--DB7093?style=flat&logo=Sass&logoColor=white"/>   
+<img src="https://img.shields.io/badge/styledComponents-DB7093?style=flat&logo=Sass&logoColor=white"/>   
 <img src="https://img.shields.io/badge/firebase v8-white?style=flat&logo=firebase&logoColor=yellow"/>
 </div>   
 
@@ -17,11 +16,23 @@
 Next.js 와 styled-components 공식문서를 참고하여, 
 기존 react + scss 로 만든 개인포트폴리오를 Next.js와 styled-component로 마이그레이션을 해봅니다.   
 
-:heavy_check_mark: ***Page Constructor*** 
+:heavy_check_mark: ***Page Constructor***   
+
 *1. Intro Page*   
 *2. Project Page* : 강의와 문서, 책을 통해 지식을 습득하며 조금씩 성장해온 과정을 담았습니다.  
 *3. SideProject Page* : 자바스크립트 라이브러리인 리액트를 좀 더 숙달하며 활용해보고자 작업한 공간입니다. 
 *4. Contact Page*
+
+:heavy_check_mark: ***Compare***   
+<img width="460" alt="스크린샷 2022-09-17 오후 1 52 15" src="https://user-images.githubusercontent.com/69461545/190841159-ca19caeb-aeb9-49a9-8774-aab08b210712.png">   
+:arrow_down:
+<img width="469" alt="스크린샷 2022-09-17 오후 1 52 31" src="https://user-images.githubusercontent.com/69461545/190841163-56def1a8-f082-4e82-9dd1-d58813043852.png">   
+
+<img width="50%" alt="스크린샷 2022-09-17 오후 1 55 23" src="https://user-images.githubusercontent.com/69461545/190841269-5426a809-6fc9-4b17-8e24-a7b17f4eb645.png">   
+
+:arrow_down:
+<img width="50%" alt="스크린샷 2022-09-17 오후 1 54 43" src="https://user-images.githubusercontent.com/69461545/190841264-047263d8-08ee-45d9-81e7-08dfdecec31d.png">  
+
 
 
 
