@@ -25,12 +25,14 @@ Next.js 와 styled-components 공식문서를 참고하여,
 
 :heavy_check_mark: ***Compare***   
 <img width="460" alt="스크린샷 2022-09-17 오후 1 52 15" src="https://user-images.githubusercontent.com/69461545/190841159-ca19caeb-aeb9-49a9-8774-aab08b210712.png">   
-:arrow_down:
+:arrow_down:   
+
 <img width="469" alt="스크린샷 2022-09-17 오후 1 52 31" src="https://user-images.githubusercontent.com/69461545/190841163-56def1a8-f082-4e82-9dd1-d58813043852.png">   
 
 <img width="50%" alt="스크린샷 2022-09-17 오후 1 55 23" src="https://user-images.githubusercontent.com/69461545/190841269-5426a809-6fc9-4b17-8e24-a7b17f4eb645.png">   
 
-:arrow_down:
+:arrow_down:   
+
 <img width="50%" alt="스크린샷 2022-09-17 오후 1 54 43" src="https://user-images.githubusercontent.com/69461545/190841264-047263d8-08ee-45d9-81e7-08dfdecec31d.png">  
 
 
